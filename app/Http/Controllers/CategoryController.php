@@ -81,10 +81,11 @@ class CategoryController extends Controller
          if($data){
              $data->category_name=$request->name;
              $data->save();
+             return redirect('/categories');
          }else{
-             echo "Data is found";
+             echo "No Valid Data Found";
          }
-         return redirect('/categories');
+        
     }
 
     /**
@@ -98,9 +99,10 @@ class CategoryController extends Controller
         $data=Category::find($id);
         if($data){
             $data->delete();
+            return redirect()->back();
         }else{
-            echo "id not found";
+            echo "No Valid Data Found";
         }
-        return redirect()->back();
+        
     }
 }

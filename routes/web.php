@@ -22,11 +22,11 @@ Route::get('/', function () {
 Route::get('/dashboard',[DashboardController::class,'dashboard'])
 ->middleware(['auth'])->name('dashboard');
 
-Route::get('/categories',[CategoryController::class,'index']);
-Route::get('/categories/create',[CategoryController::class,'create']);
-Route::post('/categories',[CategoryController::class,'store']);
-Route::get('/categories/edit/{id}',[CategoryController::class,'edit']);
-Route::post('/categories/update/{id}',[CategoryController::class,'update']);
-Route::post('/categories/delete/{id}',[CategoryController::class,'destroy']);
+Route::get('/categories',[CategoryController::class,'index'])->middleware(['auth']);
+Route::get('/categories/create',[CategoryController::class,'create'])->middleware(['auth']);
+Route::post('/categories',[CategoryController::class,'store'])->middleware(['auth']);
+Route::get('/categories/edit/{id}',[CategoryController::class,'edit'])->middleware(['auth']);
+Route::post('/categories/update/{id}',[CategoryController::class,'update'])->middleware(['auth']);
+Route::post('/categories/delete/{id}',[CategoryController::class,'destroy'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
