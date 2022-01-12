@@ -1,0 +1,14 @@
+.logout{
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    font-size: 15px;
+    background:none;
+}
+
+.style-btn{
+    display: flex;
+}
+.edit-btn{
+    margin-right: 5px;
+}
