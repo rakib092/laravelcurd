@@ -64,7 +64,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $data['category']=Category::find($id);
+       $category=Category::where('created_by',Auth::id())->find($id);
+        if(!$category){
+            return redirect('/categories');
+        }
+        $data['category']=$category;
         return view('categories.edit',$data);
     }
 
@@ -77,15 +81,13 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-         $data=Category::find($id);
-         if($data){
-             $data->category_name=$request->name;
-             $data->save();
-             return redirect('/categories');
-         }else{
-             echo "No Valid Data Found";
-         }
-        
+        $category=Category::where('created_by',Auth::id())->find($id);
+        if(!$category){
+            return redirect('/categories');
+        }
+        $category->category_name=$request->name;
+        $category->save();
+        return redirect('/categories');
     }
 
     /**
@@ -96,13 +98,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $data=Category::find($id);
-        if($data){
-            $data->delete();
-            return redirect()->back();
-        }else{
-            echo "No Valid Data Found";
+        $category=Category::find($id);
+        if(!$category){
+            return redirect('/categories');
         }
-        
+        $category->delete();
+        return redirect('/categories');
+
     }
 }

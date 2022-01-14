@@ -17,7 +17,8 @@
                     <div class="edit-btn"> <a class="btn btn-warning" href="{{url("categories/edit/$category->id")}}">Edit</a></div>
 
                     <div class="delete-btn">
-                        <form action="{{url("categories/delete/$category->id")}}" method="post">
+                        <form action="{{url("categories/$category->id")}}" method="post">
+                            @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
@@ -29,4 +30,3 @@
         @endforeach
     </table>
 @endsection
-   

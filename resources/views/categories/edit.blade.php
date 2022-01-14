@@ -9,7 +9,7 @@
        <div class="alert alert-danger">
         <ul>
            @foreach($errors->all() as $error)
-             <li>{{$error}}</li>  
+             <li>{{$error}}</li>
            @endforeach
         </ul>
        </div>
@@ -18,7 +18,8 @@
 
        <div class="panel panel-default">
            <div class="panel-heading">Edit Cetegory</div>
-           <form action="{{url("categories/update/$category->id")}}" method="post">
+           <form action="{{url("categories/$category->id")}}" method="post">
+               @method('put')
                @csrf
               <div class="panel-body">
                    <div class="form-group">
@@ -29,7 +30,7 @@
                 <div class="panel-footer">
                     <div class="form-group">
                        <button type="submit" class="btn btn-primary">Update</button>
-                    </div> 
+                    </div>
                 </div>
            </form>
        </div>

@@ -26,7 +26,7 @@ Route::get('/categories',[CategoryController::class,'index'])->middleware(['auth
 Route::get('/categories/create',[CategoryController::class,'create'])->middleware(['auth']);
 Route::post('/categories',[CategoryController::class,'store'])->middleware(['auth']);
 Route::get('/categories/edit/{id}',[CategoryController::class,'edit'])->middleware(['auth']);
-Route::post('/categories/update/{id}',[CategoryController::class,'update'])->middleware(['auth']);
-Route::post('/categories/delete/{id}',[CategoryController::class,'destroy'])->middleware(['auth']);
+Route::put('/categories/{id}',[CategoryController::class,'update'])->middleware(['auth']);
+Route::delete('/categories/{id}',[CategoryController::class,'destroy'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
