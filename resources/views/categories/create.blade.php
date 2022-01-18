@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Dashboard')
+@section('title','category')
 @section('content')
 
      <div class="row">
@@ -10,7 +10,7 @@
             <div class="alert alert-danger">
              <ul>
                 @foreach($errors->all() as $error)
-                  <li>{{$error}}</li>  
+                  <li>{{$error}}</li>
                 @endforeach
              </ul>
             </div>
@@ -28,14 +28,14 @@
                      <div class="panel-footer">
                          <div class="form-group">
                             <button type="submit" class="btn btn-primary">Create</button>
-                         </div> 
+                         </div>
                      </div>
                 </form>
             </div>
          </div>
      </div>
-   
+
     <hr>
-  
-    
+
+
 @endsection

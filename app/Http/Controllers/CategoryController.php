@@ -42,7 +42,7 @@ class CategoryController extends Controller
          $categories->created_by=Auth::id();
          $categories->category_name=$request->name;
          $categories->save();
-         return redirect()->back();
+         return redirect('/categories');
     }
 
     /**
@@ -102,6 +102,7 @@ class CategoryController extends Controller
         if(!$category){
             return redirect('/categories');
         }
+        $category->tasks()->delete();
         $category->delete();
         return redirect('/categories');
 

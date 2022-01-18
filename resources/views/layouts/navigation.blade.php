@@ -4,9 +4,9 @@
         <a class="navbar-brand" href="#">LaravelCurd</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{{url('dashboard')}}">DashBoard</a></li>
-        <li><a href="{{url('categories')}}">Category</a></li>
-        <li><a href="#">Task</a></li>
+        <li class="{{ Request::is('dashboard*') ? 'active' : '' }}"><a class="" href="{{url('dashboard')}}">DashBoard</a></li>
+        <li class="{{ Request::is('categories*') ? 'active' : '' }}"><a href="{{url('categories')}}">Category</a></li>
+        <li class="{{ Request::is('tasks*') ? 'active' : '' }}"><a href="{{url('/tasks')}}">Task</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right" >

@@ -20,7 +20,7 @@
                         <form action="{{url("categories/$category->id")}}" method="post">
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?');">Delete</button>
                         </form>
                     </div>
 
