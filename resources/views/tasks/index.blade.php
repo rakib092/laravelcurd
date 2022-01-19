@@ -23,6 +23,10 @@
         <th>{{ $task->deadline }}</th>
         <th>
             <div class="style-btn">
+                <div class="show-btn">
+                    <a class="btn btn-primary" href="{{url("/tasks/$task->id")}}">Veiw</a>
+                </div>
+
                 <div class="edit-btn">
                     <a class="btn btn-warning" href="{{ url("/tasks/$task->id/edit")}}">Edit</a>
                 </div>
@@ -33,6 +37,7 @@
                         <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure you want to delete this task?');">Delete</button>
                     </form>
                 </div>
+
             </div>
         </th>
       </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\TaskStatus;
 use App\Http\Requests\TaskRequest;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,13 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $task=Task::where('created_by',Auth::id())->find($id);
+        if(!$task){
+            return redirect('/tasks');
+        }
+        $data['task']=$task;
+        $data['comment_list']=Comment::where('created_by',Auth::id())->get();
+        return view('tasks.show',$data);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +35,14 @@ Route::delete('/categories/{id}',[CategoryController::class,'destroy'])->middlew
 Route::get('/tasks',[TaskController::class,'index'])->middleware(['auth']);
 Route::get('/tasks/create',[TaskController::class,'create'])->middleware(['auth']);
 Route::post('/tasks',[TaskController::class,'store'])->middleware(['auth']);
+Route::get('/tasks/{id}',[TaskController::class,'show'])->middleware(['auth']);
 Route::get('/tasks/{id}/edit',[TaskController::class,'edit'])->middleware(['auth']);
 Route::put('/tasks/{id}',[TaskController::class,'update'])->middleware(['auth']);
 Route::delete('/tasks/{id}',[TaskController::class,'destroy'])->middleware(['auth']);
+
+
+
+Route::get('/comments/create',[CommentController::class,'create'])->middleware(['auth']);
+Route::post('/comments',[CommentController::class,'store'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
